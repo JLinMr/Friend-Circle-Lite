@@ -25,7 +25,7 @@ jobs:
         token: ${{ secrets.PAT_TOKEN }}
         issue-number: ${{ github.event.issue.number }}
         body: |
-          🤩你好呀！ ${{ github.event.issue.user.login }}！你已经成功通过邮件订阅了清羽飞扬小站啦！若有新文章将通过邮箱推送给你！谢谢你的订阅！
+          🤩你好呀！ ${{ github.event.issue.user.login }}！你已经成功通过邮件订阅了梦爱吃鱼啦！若有新文章将通过邮箱推送给你！谢谢你的订阅！
           😥如果您实在想要关闭订阅，在右下角直接删除这个issue就好！咕咕咕咕咕咕咕！
 
     - name: Close issue

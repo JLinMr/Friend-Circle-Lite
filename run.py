@@ -34,7 +34,7 @@ if config["email_push"]["enable"] or config["rss_subscribe"]["enable"]:
 
 if config["email_push"]["enable"]:
     print("邮件推送已启用")
-    
+
 if config["rss_subscribe"]["enable"]:
     print("RSS通过issue订阅已启用")
     github_username = config["rss_subscribe"]["github_username"]
@@ -67,14 +67,14 @@ if config["rss_subscribe"]["enable"]:
                 "published": article["published"],
                 "link": article["link"]
             }
-            
+
             send_emails(
                 emails=email_list["emails"],
                 sender_email=email,
                 smtp_server=server,
                 port=port,
                 password=password,
-                subject="清羽飞扬の最新文章：" + article["title"],
+                subject="梦爱吃鱼の最新文章：" + article["title"],
                 body="文章链接：" + article["link"] + "\n" + "文章内容：" + article["summary"] + "\n" + "发布时间：" + article["published"],
                 template_path=email_template,
                 template_data=template_data,
