@@ -1,6 +1,6 @@
 function initialize_fc_lite() {
     const root = document.getElementById('friend-circle-lite-root');
-    
+
     if (!root) return; // 确保根元素存在
 
     // 清除之前的内容
@@ -14,7 +14,7 @@ function initialize_fc_lite() {
     container.className = 'articles-container';
     container.id = 'articles-container';
     root.appendChild(container);
-    
+
     const loadMoreBtn = document.createElement('button');
     loadMoreBtn.id = 'load-more-btn';
     loadMoreBtn.innerText = '显示更多';
@@ -59,22 +59,12 @@ function initialize_fc_lite() {
         // 处理统计数据
         const stats = data.statistical_data;
         statsContainer.innerHTML = `
-            <div>Powered by: <a href="https://github.com/willow-god/Friend-Circle-Lite" target="_blank">FriendCircleLite</a><br></div>
-            <div>Designed By: <a href="https://www.qyliu.top/" target="_blank">LiuShen</a><br></div>
             <div>订阅:${stats.friends_num}   活跃:${stats.active_num}   总文章数:${stats.article_num}<br></div>
             <div>更新时间:${stats.last_updated_time}</div>
         `;
 
         // 随机友链卡片
-        const randomArticle = allArticles[Math.floor(Math.random() * allArticles.length)];
-        randomArticleContainer.innerHTML = `
-            <div class="random-container">
-                <div class="random-container-title">随机钓鱼</div>
-                <div class="random-title">${randomArticle.title}</div>
-                <div class="random-author">作者: ${randomArticle.author}</div>
-            </div>
-            <button class="random-link-button" onclick="window.open('${randomArticle.link}', '_blank')">过去转转</button>
-        `;
+        updateRandomArticle();
 
         const articles = allArticles.slice(start, start + UserConfig.page_turning_number);
 
@@ -123,6 +113,23 @@ function initialize_fc_lite() {
         }
     }
 
+    function updateRandomArticle() {
+        const randomArticle = allArticles[Math.floor(Math.random() * allArticles.length)];
+        randomArticleContainer.innerHTML = `
+            <div class="random-container">
+                <div class="random-container-title">
+                    <span>🎣 钓鱼</span>
+                    <span class="random-refresh" onclick="updateRandomArticle()">
+                        <i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i>
+                    </span>
+                </div>
+                <div class="random-title">${randomArticle.title}</div>
+                <div class="random-author">作者: ${randomArticle.author}</div>
+            </div>
+            <button class="random-link-button" onclick="window.open('${randomArticle.link}', '_blank')">过去转转</button>
+        `;
+    }
+
     function showAuthorArticles(author, avatar, link) {
         // 如果不存在，则创建模态框结构
         if (!document.getElementById('modal')) {
@@ -134,6 +141,7 @@ function initialize_fc_lite() {
                 <img id="modal-author-avatar" src="" alt="">
                 <a id="modal-author-name-link"></a>
                 <div id="modal-articles-container"></div>
+                <img class="modal-background" src="" alt="">
             </div>
             `;
             document.body.appendChild(modal);
@@ -143,12 +151,17 @@ function initialize_fc_lite() {
         const modalArticlesContainer = document.getElementById('modal-articles-container');
         const modalAuthorAvatar = document.getElementById('modal-author-avatar');
         const modalAuthorNameLink = document.getElementById('modal-author-name-link');
+        const modalBackground = document.querySelector('.modal-background');
 
         modalArticlesContainer.innerHTML = ''; // 清空之前的内容
         modalAuthorAvatar.src = avatar  || UserConfig.error_img; // 使用默认头像
         modalAuthorAvatar.onerror = () => modalAuthorAvatar.src = UserConfig.error_img; // 头像加载失败时使用默认头像
         modalAuthorNameLink.innerText = author;
         modalAuthorNameLink.href = new URL(link).origin;
+
+        // 设置背景图
+        modalBackground.src = avatar || UserConfig.error_img;
+        modalBackground.onerror = () => modalBackground.src = UserConfig.error_img; // 头像加载失败时使用默认头像
 
         const authorArticles = allArticles.filter(article => article.author === author);
         // 仅仅取前五个，防止文章过多导致模态框过长，如果不够五个则全部取出
@@ -194,6 +207,9 @@ function initialize_fc_lite() {
     // 加载更多按钮点击事件
     loadMoreBtn.addEventListener('click', loadMoreArticles);
 
+    // 添加刷新按钮点击事件
+    window.updateRandomArticle = updateRandomArticle;
+
     // 点击遮罩层关闭模态框
     window.onclick = function(event) {
         const modal = document.getElementById('modal');
@@ -201,7 +217,7 @@ function initialize_fc_lite() {
             hideModal();
         }
     };
-};
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(initialize_fc_lite, 0);
