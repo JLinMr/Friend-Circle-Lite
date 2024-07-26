@@ -45,9 +45,14 @@
 body {
     background-color: var(--background-color);
 }
+
 span {
     user-select: none;
 }
+a {
+    text-decoration: none;
+}
+
 #friend-circle-lite-root {
     width: 100%;
 }
@@ -61,16 +66,29 @@ span {
     background-color: var(--container-bg-color);
     border-radius: 10px;
     border:1px solid var(--border-color);
-    height: 210px;
+    height: 200px;
 }
 .random-refresh {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
+
+.random-refresh .icon {
+    fill: var(--author-color);
+    transition: fill 0.3s ease;
+}
+
+.random-refresh:hover .icon {
+    fill: #ff7400;
+}
+
 .random-container {
     position: relative;
     margin: 20px;
     width: 90%;
-    height: 170px;
+    height: 160px;
 }
 
 .random-title:hover{
@@ -90,7 +108,7 @@ span {
 }
 
 .random-title {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 30px;
     transition: text-indent 0.3s ease-in-out;
     white-space: nowrap;
@@ -166,8 +184,8 @@ span {
     cursor: pointer;
 }
 @media screen and (max-width: 440px) {
-    .modal-content {
-        width: 80%;
+    .modal-article .modal-article-title {
+        font-size: 16px;
     }
 }
 
@@ -207,9 +225,9 @@ span {
 .modal-article .modal-article-title {
     color: var(--text-color);
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 2;
     cursor: pointer;
-    height: 1.5em;
+    height: 2em;
     width: 100%;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -240,8 +258,8 @@ span {
     background-repeat: no-repeat;
     z-index: -3;
     opacity: .5;
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
 }
 
 .modal-content {

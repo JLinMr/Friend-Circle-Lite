@@ -120,7 +120,7 @@ function initialize_fc_lite() {
                 <div class="random-container-title">
                     <span>🎣 钓鱼</span>
                     <span class="random-refresh" onclick="updateRandomArticle()">
-                        <i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i>
+                        <svg t="1721999754997" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="1207" width="16" height="16"><path d="M772.6 320H672c-35.4 0-64 28.6-64 64s28.6 64 64 64h256c35.4 0 64-28.6 64-64V128c0-35.4-28.6-64-64-64s-64 28.6-64 64v102.4l-35.2-35.2c-175-175-458.6-175-633.6 0s-175 458.6 0 633.6 458.6 175 633.6 0c25-25 25-65.6 0-90.6s-65.6-25-90.6 0c-125 125-327.6 125-452.6 0s-125-327.6 0-452.6 327.6-125 452.6 0l34.4 34.4z" p-id="1208"></path></svg>
                     </span>
                 </div>
                 <div class="random-title">${randomArticle.title}</div>
