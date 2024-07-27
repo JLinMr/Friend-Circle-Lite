@@ -25,7 +25,7 @@
     --author-color: var(--author-color-light);
     --shadow-color: var(--shadow-color-light);
     --border-color: var(--border-color-light);
-    --modal-bg-color: rgba(255, 255, 255, 0.3);
+    --modal-bg-color: rgba(255, 255, 255, 0.6);
     --load-more-btn-bg-color: var(--container-bg-color);
 }
 
@@ -38,7 +38,7 @@
     --author-color: var(--author-color-dark);
     --shadow-color: var(--shadow-color-dark);
     --border-color: var(--border-color-dark);
-    --modal-bg-color: rgba(0, 0, 0, 0.3);
+    --modal-bg-color: rgba(0, 0, 0, 0.6);
     --load-more-btn-bg-color: var(--container-bg-color);
 }
 
@@ -286,7 +286,10 @@ a {
     justify-content: space-between;
     height: 150px;
 }
-
+.card:hover .card-bg {
+    transform: scale(1.2);
+    margin: 15px!important;
+}
 .card-title {
     z-index: 1;
     font-size: 17px;
@@ -361,6 +364,7 @@ a {
     width: 140px;
     height: 140px;
     opacity: 0.4;
+    transition: transform 0.5s ease, margin 0.3s ease;
 }
 
 #load-more-btn {
