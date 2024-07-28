@@ -76,6 +76,8 @@ a {
 }
 
 .random-refresh .icon {
+    height: 16px;
+    width: 16px;
     fill: var(--author-color);
     transition: fill 0.3s ease;
 }
