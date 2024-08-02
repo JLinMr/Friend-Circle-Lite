@@ -231,10 +231,14 @@ a {
 .modal-article .modal-article-title {
     color: var(--text-color);
     font-size: 18px;
+    line-height: 2;
+    height: 2em;
     width: 100%;
-    white-space: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none!important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .modal-article .modal-article-title:hover {
