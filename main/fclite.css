@@ -47,7 +47,10 @@ body {
 }
 
 span {
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 a {
     text-decoration: none;
@@ -197,7 +200,8 @@ a {
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 #modal-author-name-link {
@@ -229,8 +233,8 @@ a {
     font-size: 18px;
     width: 100%;
     white-space: nowrap;
-    overflow-x: scroll;
-    scrollbar-width: none;
+    overflow-x: auto;
+    scrollbar-width: none!important;
 }
 
 .modal-article .modal-article-title:hover {
@@ -327,6 +331,8 @@ a {
     border-radius: 15px;
     display: flex;
     padding-right: 10px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     height: 26px;
     align-items: center;
@@ -337,7 +343,8 @@ a {
     width: 15px;
     height: 15px;
     margin: 0 2px !important;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .card-date {
