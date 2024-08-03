@@ -114,7 +114,7 @@ a {
 
 .random-title {
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 25px;
     transition: text-indent 0.3s ease-in-out;
     white-space: nowrap;
     overflow: hidden;
@@ -159,7 +159,7 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) translateY(-50px);
-    width: 80%;
+    width: 90%;
     max-width: 600px;
     overflow: hidden;
     background-color: var(--modal-bg-color);
@@ -230,11 +230,13 @@ a {
 
 .modal-article .modal-article-title {
     color: var(--text-color);
-    font-size: 18px;
+    line-height: 21px;
     width: 100%;
-    white-space: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none!important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .modal-article .modal-article-title:hover {
@@ -245,7 +247,7 @@ a {
     font-size: 12px;
     width: 100%;
     color: var(--author-color);
-    padding: 5px;
+    padding-top: 10px;
     cursor: default;
     text-align: right;
 }
