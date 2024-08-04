@@ -160,7 +160,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%) translateY(-50px);
     width: 80%;
-    max-width: 600px;
+    max-width: 500px;
     overflow: hidden;
     background-color: var(--modal-bg-color);
     padding: 20px;
