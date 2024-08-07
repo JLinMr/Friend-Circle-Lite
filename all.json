@@ -4,7 +4,7 @@
     "active_num": 11,
     "error_num": 5,
     "article_num": 53,
-    "last_updated_time": "2024-08-07 09:20:50"
+    "last_updated_time": "2024-08-07 14:25:49"
   },
   "article_data": [
     {
@@ -13,6 +13,13 @@
       "link": "https://yjvc.cn/index.php/archives/1421/",
       "author": "刘郎阁",
       "avatar": "https://yjvc.cn/usr/uploads/logo.jpeg"
+    },
+    {
+      "title": "在Mac上使用CosyVoice教程：人声克隆，跨语种复刻、AITTS文本转语音",
+      "created": "2024-08-06 18:40",
+      "link": "https://blog.zhheo.com/p/e950.html",
+      "author": "张洪Heo",
+      "avatar": "https://bu.dusays.com/2022/12/28/63ac2812183aa.png"
     },
     {
       "title": "关于“拼多多助力活动”这件事",
@@ -160,13 +167,6 @@
       "link": "https://blog.xiemu.top/posts/e0de93dd.html",
       "author": "谢幕",
       "avatar": "https://q.qlogo.cn/headimg_dl?dst_uin=1041291&spec=100"
-    },
-    {
-      "title": "如何更改Mac上左上角的苹果图标样式，个性化自定义Mac美化菜单栏",
-      "created": "2024-07-24 17:07",
-      "link": "https://blog.zhheo.com/p/a61a.html",
-      "author": "张洪Heo",
-      "avatar": "https://bu.dusays.com/2022/12/28/63ac2812183aa.png"
     },
     {
       "title": "❖星港◎Star☆｜博客一周年记",
