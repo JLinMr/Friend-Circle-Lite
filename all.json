@@ -4,9 +4,16 @@
     "active_num": 11,
     "error_num": 5,
     "article_num": 53,
-    "last_updated_time": "2024-08-09 14:26:37"
+    "last_updated_time": "2024-08-09 20:35:13"
   },
   "article_data": [
+    {
+      "title": "公告：域名迁移至 blog.liushen.fun",
+      "created": "2024-08-09 16:00",
+      "link": "https://blog.liushen.fun/posts/159f1aa5/",
+      "author": "清羽飞扬",
+      "avatar": "https://blog.qyliu.top/info/avatar.ico"
+    },
     {
       "title": "绝区零｜Fairy待机文案收集",
       "created": "2024-08-07 18:00",
@@ -80,7 +87,7 @@
     {
       "title": "CloudFlare实用项目推荐",
       "created": "2024-08-01 01:31",
-      "link": "https://blog.qyliu.top/posts/3850e950/",
+      "link": "https://blog.liushen.fun/posts/3850e950/",
       "author": "清羽飞扬",
       "avatar": "https://blog.qyliu.top/info/avatar.ico"
     },
@@ -185,7 +192,7 @@
     {
       "title": "Friend-Circle-Lite:轻量友链朋友圈",
       "created": "2024-07-21 00:01",
-      "link": "https://blog.qyliu.top/posts/4dc716ec/",
+      "link": "https://blog.liushen.fun/posts/4dc716ec/",
       "author": "清羽飞扬",
       "avatar": "https://blog.qyliu.top/info/avatar.ico"
     },
@@ -213,21 +220,14 @@
     {
       "title": "Spikformer脉冲神经网络学习",
       "created": "2024-07-06 13:33",
-      "link": "https://blog.qyliu.top/posts/67189760/",
+      "link": "https://blog.liushen.fun/posts/67189760/",
       "author": "清羽飞扬",
       "avatar": "https://blog.qyliu.top/info/avatar.ico"
     },
     {
       "title": "东软软件园实习日记",
       "created": "2024-07-01 16:39",
-      "link": "https://blog.qyliu.top/posts/13e6e155/",
-      "author": "清羽飞扬",
-      "avatar": "https://blog.qyliu.top/info/avatar.ico"
-    },
-    {
-      "title": "Github Action实现友链状态检测",
-      "created": "2024-06-24 01:00",
-      "link": "https://blog.qyliu.top/posts/c2262998/",
+      "link": "https://blog.liushen.fun/posts/13e6e155/",
       "author": "清羽飞扬",
       "avatar": "https://blog.qyliu.top/info/avatar.ico"
     },
