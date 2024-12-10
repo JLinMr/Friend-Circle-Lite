@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta name="description" content="🐱一个精简版，无后端，且仅利用github action运行的精简版友链朋友圈程序，兼容fc的json格式信息，同时支持推送友圈更新，支持他人订阅个人站点并在更新时发送邮箱推送。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frient-Circle-Lite</title>
+    <link rel="stylesheet" href="../main/main.css">
+    <style>
+        #friend-circle-lite-root {
+            padding: 10px 0;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        .scroll-down-icon {
+            position: absolute;
+            bottom: 20px;
+            height: 24px;
+            color: #007BFF;
+            animation: bounce 1.5s infinite;
+        }
+        .scroll-down-icon::before,
+        .scroll-down-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            opacity: .8;
+            border-left: 3px solid #007BFF;
+            border-bottom: 3px solid #007BFF;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        .scroll-down-icon::after {
+            top: 80%;
+            opacity: .6;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: .6;
+            }
+            50% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../favicon.ico" alt="Avatar" class="avatar">
+        <p>Friend-Circle-Lite<br>服务已运行</p>
+        <div class="button-container">
+            <a href="https://blog.liushen.fun/posts/4dc716ec/" class="button" rel="nofollow">查看文档</a>
+            <a href="/all.json" class="button">测试接口</a>
+        </div>
+        <a href="#" class="scroll-down-icon" id="scroll-down-button"></a>
+    </div>
+
+    <div id="friend-circle-lite-root">
+        <div class="fishing-random">
+            <div class="random-header">
+                <span>🎣 钓鱼</span>
+                <svg class="random-refresh" viewBox="0 0 1024 1024" width="16" height="16">
+                    <path d="M772.6 320H672c-35.4 0-64 28.6-64 64s28.6 64 64 64h256c35.4 0 64-28.6 64-64V128c0-35.4-28.6-64-64-64s-64 28.6-64 64v102.4l-35.2-35.2c-175-175-458.6-175-633.6 0s-175 458.6 0 633.6 458.6 175 633.6 0c25-25 25-65.6 0-90.6s-65.6-25-90.6 0c-125 125-327.6 125-452.6 0s-125-327.6 0-452.6 327.6-125 452.6 0l34.4 34.4z"></path>
+                </svg>
+            </div>
+            <div id="random-article"></div>
+            <div class="random-header">
+                <span>🐟 鱼塘</span>
+            </div>
+        </div>
+        <div class="articles-container"></div>
+        <button id="load-more">再来亿点</button>
+        <div id="stats"></div>
+    </div>
+
+    <script>
+        document.getElementById('scroll-down-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const friendCircle = document.getElementById('friend-circle-lite-root');
+            friendCircle.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+    <script>
+        if (typeof UserConfig === 'undefined') {
+            var UserConfig = {
+                // 填写你的fc Lite地址
+                private_api_url: 'https://fc.ruom.top/',
+                // 点击加载更多时，一次最多加载几篇文章，默认25
+                page_turning_number: 25,
+                // 头像加载失败时，默认头像地址
+                error_img: 'https://fastly.jsdelivr.net/gh/JLinMr/Friend-Circle-Lite@latest/static/favicon.ico',
+                // 缓存时间（毫秒），默认10分钟
+                cache_duration: 60 * 60 * 1000, // 10分钟 = 10 * 60 * 1000 毫秒
+            }
+        }
+    </script>
+    <script>
+        (function() {
+            const container = document.querySelector('.articles-container');
+            const cardCount = UserConfig.page_turning_number || 25;
+            const cardHTML = `
+                <div class="card loading">
+                    <div class="skeleton-content">
+                        <div class="skeleton card-title"></div>
+                        <div class="card-info">
+                            <div class="skeleton card-author"></div>
+                            <div class="skeleton card-date"></div>
+                        </div>
+                    </div>
+                    <div class="real-content hidden"></div>
+                </div>
+            `;
+            container.innerHTML = cardHTML.repeat(cardCount);
+        })();
+    </script>
+    <script src="../main/main.js"></script>
+</body>
+</html>
