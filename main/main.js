@@ -7,7 +7,7 @@ if (typeof window.FriendCircleLite === 'undefined') {
             
             const config = UserConfig ?? {};
             this.pageSize = config.page_turning_number ?? 25;
-            this.apiUrl = config.private_api_url ?? 'https://fc.ruom.top';
+            this.apiUrl = config.private_api_url ?? 'https://fc.bsgun.cn';
             this.errorImg = config.error_img ?? 'https://fastly.jsdelivr.net/gh/JLinMr/Friend-Circle-Lite@latest/static/favicon.ico';
             this.start = 0;
             this.allArticles = [];
