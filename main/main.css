@@ -1,0 +1,540 @@
+/* 1. 变量定义 */
+:root {
+    /* 文字颜色 */
+    --text-color-light: #111111;
+    --text-color-dark: #ddd;
+    
+    /* 背景颜色 */
+    --background-color-light: #f4f4f9;
+    --background-color-dark: #181818;
+    
+    /* 容器背景 */
+    --container-bg-color-light: white;
+    --container-bg-color-dark: #1D1E22;
+    
+    /* 交互颜色 */
+    --hover-color: #3498db;
+    
+    /* 作者相关颜色 */
+    --author-color-light: gray;
+    --author-color-dark: #b3b3b3;
+    
+    /* 模态框相关 */
+    --modal-bg-blur: 25px;
+    
+    /* 阴影和边框 */
+    --shadow-color-light: rgba(0, 0, 0, 0.1);
+    --shadow-color-dark: rgba(255, 255, 255, 0.1);
+    --border-color-light: #e3e8f7;
+    --border-color-dark: #42444a;
+    
+    /* 滚动条 */
+    --scrollbar-color-dark: #343434;
+    --scrollbar-color-light: #aeaeae;
+    
+    /* 按钮 */
+    --button-bg-color-light: white;
+    --button-bg-color-dark: #333;
+}
+
+/* 2. 主题相关样式 */
+[data-theme=light] {
+    --text-color: var(--text-color-light);
+    --background-color: var(--background-color-light);
+    --tag-bg-color: #bfbfbf;
+    --container-bg-color: var(--container-bg-color-light);
+    --author-color: var(--author-color-light);
+    --shadow-color: var(--shadow-color-light);
+    --border-color: var(--border-color-light);
+    --modal-bg-color: rgba(255, 255, 255, 0.6);
+    --load-more-btn-bg-color: var(--container-bg-color);
+    --scrollbar-color: var(--scrollbar-color-light);
+    --button-bg-color: var(--button-bg-color-light);
+}
+
+[data-theme=dark] {
+    --text-color: var(--text-color-dark);
+    --background-color: var(--background-color-dark);
+    --tag-bg-color: #474747;
+    --container-bg-color: var(--container-bg-color-dark);
+    --author-color: var(--author-color-dark);
+    --shadow-color: var(--shadow-color-dark);
+    --border-color: var(--border-color-dark);
+    --modal-bg-color: rgba(0, 0, 0, 0.6);
+    --load-more-btn-bg-color: var(--container-bg-color);
+    --scrollbar-color: var(--scrollbar-color-dark);
+    --button-bg-color: var(--button-bg-color-dark);
+}
+
+/* 3. 基础样式 */
+* {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) transparent;
+    user-select: none;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: var(--background-color);
+}
+
+span {
+    user-select: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+/* 4. 布局组件 */
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button {
+    background-color: var(--button-bg-color);
+    border: 2px solid #007BFF;
+    color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+#friend-circle-lite-root {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 5. 卡片相关样式 */
+/* 随机文章卡片 */
+#random-article {
+    padding: 15px;
+    background-color: var(--container-bg-color);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    min-height: 59px;
+    transition: all .5s ease-in-out;
+    line-height: 1.6;
+}
+
+#random-article:hover {
+    border: 1px solid var(--hover-color);
+}
+
+.fishing-random{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.random-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.random-refresh {
+    cursor: pointer;
+    fill: var(--author-color);
+    transition: fill 0.3s;
+}
+
+.random-refresh:hover {
+    fill: #ff7400;
+}
+
+.random-content {
+    font-size: 20px;
+}
+
+.random-author,
+.random-title {
+    cursor: pointer;
+    padding: 3px;
+    color: var(--hover-color);
+    background: linear-gradient(rgba(51,119,255,.149), rgba(51,119,255,.149)) 0 100%/100% 10% no-repeat;
+    transition: background-size .3s ease-in-out, border-radius .3s ease-in-out;
+}
+
+.random-author:hover,
+.random-title:hover {
+    border-radius: 5px;
+    background-size: 100% 100%;
+}
+
+.random-container-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* 文章列表卡片 */
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--container-bg-color);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    height: 150px;
+    transition: all .5s ease-in-out;
+}
+
+.card:hover {
+    border: 1px solid var(--hover-color);
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.card-title {
+    z-index: 1;
+    font-size: 17px;
+    color: var(--text-color);
+    font-weight: 520;
+    cursor: pointer;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    max-height: 4.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    transition: color 0.3s ease-in-out;
+}
+
+.card-title:hover {
+    color: var(--hover-color);
+}
+
+.card-author,
+.card-date {
+    font-size: 12px;
+    color: var(--author-color);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card-author {
+    cursor: pointer;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    display: flex;
+    padding: 5px;
+    width: fit-content;
+    max-width: 110px;
+    height: 26px;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-author:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-author img {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin: 0 2px;
+    object-fit: cover;
+}
+
+.card-bg {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0.4;
+    transition: all 0.3s ease-in-out;
+    filter: blur(3px);
+    z-index: 0;
+}
+
+.card:hover .card-bg {
+    transform: translateY(-50%) scale(1.2);
+}
+
+/* 加载更多按钮 */
+#load-more {
+    display: flex;
+    color: var(--text-color);
+    font-size: 15px;
+    background-color: var(--container-bg-color);
+    cursor: pointer;
+    width: 200px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    padding: 3px;
+    transition: all 0.3s ease-in-out;
+    margin: 20px auto;
+    min-height: 28.4px;
+    align-items: center;
+    justify-content: center;
+}
+
+#load-more:hover {
+    background-color: var(--hover-color);
+    width: 300px;
+    color: white;
+}
+
+/* 统计容器 */
+#stats {
+    display: flex;
+    font-size: 13px;
+    min-height: 80px;
+    flex-direction: column;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+#stats a {
+    color: var(--author-color);
+}
+
+/* 6. 模态框相关样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(var(--modal-bg-blur));
+    -webkit-backdrop-filter: blur(var(--modal-bg-blur));
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal.modal-open {
+    opacity: 1;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(-50px);
+    width: 80%;
+    max-width: 500px;
+    overflow: hidden;
+    background-color: var(--modal-bg-color);
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    z-index: 1000;
+    border-radius: 20px;
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.modal.modal-open .modal-content {
+    transform: translate(-50%, -50%) translateY(0);
+    opacity: 1;
+}
+
+.modal-avatar {
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    opacity: .7;
+    object-fit: cover;
+}
+
+.modal-link {
+    display: block;
+    text-align: center;
+    color: var(--hover-color);
+}
+
+.modal-content hr {
+    margin: 20px 0;
+}
+
+.modal-articles {
+    border-top: var(--hover-color) double 2px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.modal-article {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: var(--hover-color) dashed 1px;
+}
+
+.modal-article .modal-article-title {
+    color: var(--text-color);
+    line-height: 21px;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal-article .modal-article-title:hover {
+    color: var(--hover-color);
+}
+
+.modal-article .modal-article-date {
+    font-size: 12px;
+    width: 100%;
+    color: var(--author-color);
+    padding-top: 10px;
+    cursor: default;
+    text-align: right;
+}
+
+.modal-content .modal-background {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    background-size: 100%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    z-index: -3;
+    opacity: .5;
+    width: 180px;
+    height: 180px;
+    filter: blur(2px);
+}
+
+/* 7. 骨架屏相关样式 */
+.skeleton-content, 
+.real-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.skeleton {
+    opacity: 1;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0px);
+}
+
+.card-title.skeleton {
+    min-height: 51px;
+}
+
+.card-author.skeleton {
+    min-width: 60px;
+}
+
+.card-date.skeleton {
+    min-height: 26px;
+    min-width: 90px;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+/* 8. 动画相关样式 */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes skeleton-shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(400%);
+    }
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg,transparent,var(--shadow-color),transparent);
+    animation: skeleton-shine 1.5s linear infinite;
+    will-change: transform;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 440px) {
+    .modal-article .modal-article-title {
+        font-size: 16px;
+    }
+}
